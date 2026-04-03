@@ -11,19 +11,35 @@
             <div class="top-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h2 style="margin: 0;">Clipboard to Jisho</h2>
-                    <button id="toggle-btn" style="padding: 8px 16px; background: #d84315; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 180px;">Stop clipboard server</button>
+                    <button id="toggle-btn" class="btn btn-red">Stop clipboard server</button>
                 </div>
                 <div id="output">Waiting for copied text...</div>
-            </div>
-            <div class="bottom-section">
+
+                <div class="anki-panel">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="margin: 0;">Anki Flashcard Builder</h3>
+                        <div style="display: flex; gap: 10px;">
+                            <select id="deck-select" class="anki-dropdown"><option>Loading decks...</option></select>
+                            <select id="model-select" class="anki-dropdown"><option>Loading models...</option></select>
+                            <button id="refresh-anki-btn" class="btn btn-blue" style="padding: 4px 8px; font-size: 12px;" title="Refresh Decks/Models">Refresh</button>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; margin-top: 5px; color: #666;">
+                        <em>Right-click</em> words above to add them (Max 5). Paste (Ctrl+V) an image here.
+                    </p>
+                    <div id="anki-selected-words"></div>
+                    <div style="display: flex; gap: 15px; margin-top: 15px; align-items: stretch;">
+                        <div id="screenshot-preview">Paste Image Here</div>
+                        <button id="send-anki-btn" class="btn btn-blue" disabled>Send to Anki</button>
+                    </div>
+                </div>
+            </div> <div class="bottom-section">
                 <iframe
                     name="jisho-frame"
                     id="jisho-frame"
                     src="https://jisho.org"
                     title="Jisho Embedded Window"
                 ></iframe>
-            </div>
-        </div>
-        <script src="script.js"></script>
+            </div> </div> <script src="script.js"></script>
     </body>
 </html>

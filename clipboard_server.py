@@ -1,6 +1,7 @@
 import os
 
 import pyperclip
+import requests
 from flask import Flask, jsonify
 from flask_cors import CORS
 from fugashi import Tagger
@@ -44,6 +45,13 @@ def toggle():
 def shutdown():
     os._exit(0)
     return jsonify({"status": "shutting down"})
+
+
+@app.route("/api/jisho/<word>")
+def jisho_proxy(word):
+    url = f"https://jisho.org/api/v1/search/words?keyword={word}"
+    response = requests.get(url)
+    return jsonify(response.json())
 
 
 if __name__ == "__main__":
