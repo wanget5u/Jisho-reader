@@ -74,5 +74,6 @@ Back Template:
 ## Shutdown and Troubleshooting
 - To safely shut down the background Python server, simply close the browser tab.
 - If the server becomes stuck or you need to manually force close the background process, open the cmd and run:
-
+```
 taskkill /f /im pythonw.exe
+```
