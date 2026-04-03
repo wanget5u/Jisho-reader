@@ -1,5 +1,5 @@
 @echo off
 :: Open the web UI
-start "" "index.html"
+start "" "frontend/index.html"
 :: Run the Python server using 'pythonw' (windowless python)
-start "" pythonw clipboard_server.py
+start "" pythonw backend/clipboard_server.py

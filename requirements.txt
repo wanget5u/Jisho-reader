@@ -1,0 +1,6 @@
+Flask
+Flask-Cors
+pyperclip
+fugashi
+unidic-lite
+requests
