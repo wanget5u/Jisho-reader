@@ -90,6 +90,9 @@ function clearAnkiSelections() {
   selectedTokens = [];
   screenshotBase64 = null;
   screenshotPreview.innerHTML = "Paste Image Here";
+  document.querySelectorAll(".selected-word").forEach((node) => {
+    node.classList.remove("selected-word");
+  });
   updateAnkiUI();
 }
 
@@ -199,9 +202,10 @@ sendAnkiBtn.addEventListener("click", async () => {
       body: JSON.stringify(payload),
     });
     const result = await response.json();
-
     if (result.error) {
       alert("Anki Error: " + result.error);
+      sendAnkiBtn.textContent = "Send to Anki";
+      sendAnkiBtn.disabled = false;
     } else {
       sendAnkiBtn.style.background = "#2e7d32";
       sendAnkiBtn.textContent = "Added!";
